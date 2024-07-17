@@ -1,5 +1,9 @@
 const { SerialPort, ReadlineParser } = require('serialport');
-const config = require('../config/config');
+// const config = require('../config/config');
+const configService = require('../config/config-service');
+const config = configService.getConfig();
+const protocols = require('../config/enumerates/protocols');
+
 let serialport;
 // const bufWeightCheckRequest = Buffer.from('W', 'utf-8');
 const bufWeightCheckRequest = Buffer.from('?W\r\n', 'utf-8');
@@ -38,7 +42,7 @@ const sleep = async (ms) => {
 
 const getWeightFromScale = async () => {
     if (config.logConsole) {
-        console.log({ params });
+        console.log({ params, protocol: config.protocol });
     }
     let strData = '';
     if (!serialport) {
@@ -79,16 +83,18 @@ const getWeightFromScale = async () => {
     serialport.write(bufWeightCheckRequest, handleWriteResponse);
 };
 
-setInterval(async () => {
-    try {
-        await getWeightFromScale();
-    } catch (error) {
-        weightData.is_error = true;
-        weightData.error = error.message;
-        weightData.result = 0;
-    }
+if (config.protocol === protocols.SASI.name) {
+    setInterval(async () => {
+        try {
+            await getWeightFromScale();
+        } catch (error) {
+            weightData.is_error = true;
+            weightData.error = error.message;
+            weightData.result = 0;
+        }
 
-}, 600)
+    }, 600);
+}
 
 exports.getWeightFromScale = getWeightFromScale;
 exports.getWeight = getWeight;

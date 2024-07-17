@@ -4,6 +4,7 @@ const configService = require('./config/config-service');
 const configApp = configService.getConfigApp();
 const app = express();
 const scalesRoutes = require('./routes/scales-routes');
+// const scalesWinServiceRoutes = require('./routes/scalesWinService-routes');
 const demoRoutes = require('./routes/demo-routes');
 
 app.use(express.json({ limit: '50mb' }));
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 app.use('/demo', demoRoutes);
 app.use('/', scalesRoutes);
+// app.use('/', scalesWinServiceRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: 'Could not find this route' });

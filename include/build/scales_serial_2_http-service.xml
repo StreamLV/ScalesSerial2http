@@ -1,0 +1,9 @@
+<service>
+  <id>ScalesSerial2http</id>
+  <name>ScalesSerial2http</name>
+  <description>ScalesSerial2http</description>
+  <executable>scales_serial_2_http.exe</executable>
+  <arguments></arguments>
+  <log mode="roll" />
+  <onfailure action="restart" />
+</service>

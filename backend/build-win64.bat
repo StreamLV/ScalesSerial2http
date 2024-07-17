@@ -1,0 +1,1 @@
+pkg app.js --targets win-x64 --output scales_serial_2_http.exe
