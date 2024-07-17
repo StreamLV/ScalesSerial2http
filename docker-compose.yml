@@ -1,0 +1,24 @@
+services:
+  scalesserial2http:
+    privileged: true
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: scalesserial2http
+    restart: unless-stopped
+    ports:
+      - '7917:7917'
+    hostname: 'scalesserial2http'
+    volumes:
+      - ./:/usr/app/
+      - /usr/app/node_modules
+      - /dev:/dev
+    command: npm start
+    #command:
+    #  - /bin/bash
+    #  - -c
+    #  - |
+    #    npm install pm2 -g
+    #    pm2-runtime app.js
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'

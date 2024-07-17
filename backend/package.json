@@ -1,0 +1,20 @@
+{
+    "name": "scales_serial_2_http",
+    "version": "1.0.0",
+    "description": "scales_serial_2_http on Docker",
+    "author": "streamlv",
+    "main": "app.js",
+    "scripts": {
+      "start": "nodemon app.js",
+      "start-prod": "npm start"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+      },
+    "dependencies": {
+      "express": "^4.16.1",
+      "multer": "^1.4.4",
+      "serialport": "^10.4.0",
+      "global": "^4.4.0"
+    }
+  }
