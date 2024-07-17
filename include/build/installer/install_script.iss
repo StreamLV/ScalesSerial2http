@@ -32,7 +32,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=D:\bases\scales\ScalesSerial2http\include\build\installer\output
-OutputBaseFilename=scales_serial_2_http_installer.exe
+OutputBaseFilename=scales_serial_2_http_installer
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
