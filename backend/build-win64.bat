@@ -1,1 +1,1 @@
-pkg app.js --targets win-x64 --output scales_serial_2_http.exe
+pkg . --targets node16-win-x64 --output ../include/build/scales_serial_2_http.exe
