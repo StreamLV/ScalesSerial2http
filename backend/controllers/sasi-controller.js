@@ -1,7 +1,8 @@
 const { SerialPort, ReadlineParser } = require('serialport');
 const config = require('../config/config');
 let serialport;
-const bufWeightCheckRequest = Buffer.from('W', 'utf-8');
+// const bufWeightCheckRequest = Buffer.from('W', 'utf-8');
+const bufWeightCheckRequest = Buffer.from('?W\r\n', 'utf-8');
 
 const parseDevPath = (devPath) => {
     if (devPath.toLowerCase().includes('com')) {
