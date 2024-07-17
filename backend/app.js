@@ -1,5 +1,7 @@
 const express = require('express');
-const configApp = require('./config/configApp');
+const configService = require('./config/config-service');
+// const configApp = require('./config/configApp');
+const configApp = configService.getConfigApp();
 const app = express();
 const scalesRoutes = require('./routes/scales-routes');
 const demoRoutes = require('./routes/demo-routes');
